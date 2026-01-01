@@ -1,0 +1,125 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Page background */
+body {
+  height: 100vh;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Chat container */
+#chat-wrapper {
+  width: 400px;
+  max-width: 95%;
+  height: 600px;
+  background: #ffffff;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+/* Header */
+#chat-header {
+  padding: 15px;
+  background: #075e54;
+  color: white;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Messages area */
+#message-container {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  background: #ece5dd;
+}
+
+/* Message bubbles */
+.message {
+  max-width: 75%;
+  padding: 10px 14px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+
+/* My messages */
+.message.self {
+  background: #dcf8c6;
+  align-self: flex-end;
+  border-bottom-right-radius: 0;
+}
+
+/* Other user messages */
+.message.other {
+  background: #ffffff;
+  align-self: flex-start;
+  border-bottom-left-radius: 0;
+}
+
+/* Send form */
+#send-container {
+  display: flex;
+  padding: 10px;
+  background: #f0f0f0;
+  border-top: 1px solid #ddd;
+}
+
+/* Input */
+#message-input {
+  flex: 1;
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  outline: none;
+}
+
+/* Send button */
+#send-container button {
+  margin-left: 10px;
+  padding: 10px 18px;
+  background: #075e54;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#send-container button:hover {
+  background: #064c46;
+}
+
+/* Scrollbar styling */
+#message-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+#message-container::-webkit-scrollbar-thumb {
+  background: #bbb;
+  border-radius: 5px;
+}
+
+.system-message {
+  text-align: center;
+  font-size: 12px;
+  color: #555;
+  margin: 10px 0;
+  font-style: italic;
+}

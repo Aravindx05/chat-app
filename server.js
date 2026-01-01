@@ -14,11 +14,21 @@ app.use(express.static("public"));
 
 io.on("connection", socket => {
   console.log("New user connected");
-  socket.emit("chat-message", "h");
-    socket.on("send-chat-message", message => {
-        console.log(message);
-        socket.broadcast.emit("chat-message", message);
-    });
+
+  socket.on("new-user-joined", name => {
+    socket.username = name;
+    socket.broadcast.emit("user-joined", name);
+  });
+
+  socket.on("send-chat-message", data => {
+    socket.broadcast.emit("chat-message", data);
+  });
+
+  socket.on("disconnect", () => {
+    if (socket.username) {
+      socket.broadcast.emit("user-left", socket.username);
+    }
+  });
 });
 
 server.listen(3000, () => {
